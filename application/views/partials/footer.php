@@ -1,7 +1,18 @@
-<!-- footer content -->
-<footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        <!-- footer content -->
+        <footer>
+          <div class="container">
+              <div class="row">
+                  <div class="col-xs-12 col-lg-6" align="right">
+                        <img class="img-responsive" src="<?php echo base_url(''); ?>assets/gentelella/images/a.png" >  
+                  </div>
+                  <div class="col-xs-12 col-lg-6">    
+                      <img class="img-responsive" src="<?php echo base_url(''); ?>assets/gentelella/images/b.png">
+                  </div>
+              </div>     
+          </div> 
+          <hr>
+          <div style="text-align:center;">
+          Copyright © 2019 PT. Pegadaian - Persero. All Rights Reserved.
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -49,6 +60,23 @@
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url(); ?>assets/gentelella/build/js/custom.min.js"></script>
-	
+  
+    
+    <!-- Datatables -->
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/pdfmake/build/vfs_fonts.js"></script>
   </body>
 </html>

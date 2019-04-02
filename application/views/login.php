@@ -27,14 +27,15 @@
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
 
+        
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <div>
-                <img src="<?php base_url('assets/gentelella/images/')?>logologo.png" alt="">
-            </div>
+            <center>
+                    <img style="width:100%" src="<?php echo base_url(); ?>assets/gentelella/images/logologo.png" alt="">
+            </center>
             <form>
-              <h1>Login Form</h1><img src="<?php base_url('assets/gentelella/images/')?>logologo.png" alt="">
+              <h1>Login</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Username" required="" />
               </div>
@@ -57,8 +58,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> PT. Pegadaian Persero</h1>
-                  <p>©2016 All Rights Reserved. PT. Pegadaian Persero</p>
+                  
+                  <p>Copyright © 2019 PT. Pegadaian - Persero. All Rights Reserved.</p>
                 </div>
               </div>
             </form>
@@ -67,16 +68,22 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
+            <center>
+                    <img style="width:100%" src="<?php echo base_url(); ?>assets/gentelella/images/logologo.png" alt="">
+            </center>
             <form>
-              <h1>Create Account</h1>
+              <h1>Daftar Akun</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Nama" name="nama" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="text" class="form-control" placeholder="Username" name="username" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Password" name="pasword" required="" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="Handphone" name="nohp" required="" />
               </div>
               <div>
                 <a class="btn btn-default submit" href="index.html">Submit</a>
@@ -93,8 +100,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> PT. Pegadaian Persero</h1>
-                  <p>©2016 All Rights Reserved. PT. Pegadaian Persero</p>
+                  
+                  <p>Copyright © 2019 PT. Pegadaian - Persero. All Rights Reserved.</p>
                 </div>
               </div>
             </form>
