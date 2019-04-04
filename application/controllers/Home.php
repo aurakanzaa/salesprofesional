@@ -46,4 +46,11 @@ class Home extends CI_Controller {
         
     }
 
+    public function profile(){
+        $this->load->view('partials/header');
+        $this->load->view('profile');
+        $this->load->view('partials/footer');
+        
+    }
+
 }
