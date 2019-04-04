@@ -26,6 +26,7 @@
                             <th>No Kredit</th>
                             <th>Nama Nasabah</th>
                             <th>Tgl Pinjaman</th>
+                            <th>Produk</th>
                             <th>Nama Cabang</th>
                             <th>Jangka Waktu</th>
                             <th style="width:10%">Opsi</th>
@@ -39,6 +40,7 @@
                                 <td>123454321</td>
                                 <td>Aura </td>
                                 <td>1-05-2019</td>
+                                <td>Amanah</td>
                                 <td>Kotalama</td>
                                 <td>12 bulan</td>
                                 <td>
