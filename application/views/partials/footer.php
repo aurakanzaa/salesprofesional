@@ -59,8 +59,9 @@
     <script src="<?php echo base_url(); ?>assets/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
     <!-- Custom Theme Scripts -->
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/parsleyjs/dist/parsley.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/gentelella/build/js/custom.min.js"></script>
-  
+    <script src="<?php  echo base_url('')?>assets/money.js"></script>
     
     <!-- Datatables -->
     <script src="<?php echo base_url(); ?>assets/gentelella/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
