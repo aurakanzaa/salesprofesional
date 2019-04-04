@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+    var $API ="";
+    
+    function __construct() {
+        parent::__construct();
+      
+    }
+
     public function index()
 	{	
 		$this->load->view('partials/header');
@@ -15,6 +22,8 @@ class Home extends CI_Controller {
 	{	
 		$this->load->view('login');
     }
+
+   
     
     public function form(){
         $this->load->view('partials/header');
