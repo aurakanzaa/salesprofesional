@@ -7,7 +7,7 @@ class Home extends CI_Controller {
     
     function __construct() {
         parent::__construct();
-      
+        $this->API="https://api.thegadeareamalang.com/bpo/index.php/";
     }
 
     public function index()
@@ -23,7 +23,30 @@ class Home extends CI_Controller {
 		$this->load->view('login');
     }
 
-   
+    public function login_aksi(){
+        
+        $data = array(
+        "username" => $this->input->post('username'),
+        "password" => $this->input->post('password')
+        );
+
+        $login = json_decode($this->curl->simple_post($this->API.'/login', $data, array(CURLOPT_BUFFERSIZE => 10))); 
+        if($login){
+            if($login->status=="success"){
+                $sess_arr = array(
+					'id' => $login->data->id,
+                    'username' => $login->data->username,
+                    'nama' => $login->data->nama
+				);
+                $this->session->set_userdata('login',$sess_arr);
+                echo "sukses";
+            }else{
+                echo "error";
+            }
+        }else{
+            echo "koneksi Error";
+        }
+    }
     
     public function form(){
         $this->load->view('partials/header');
