@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+	<link rel="icon" href="<?php echo base_url(); ?>assets/gentelella/images/logologo.ico" type="image/ico" />
 
     <title>Gentelella Alela! | </title>
 
@@ -48,15 +48,25 @@
             </div>
 
             <div class="clearfix"></div>
+            <?php 
+            $sessData = $this->session->userdata('login');
+            if(!$sessData){
+              echo "<script>window.location=('login/')</script>";
+              
+            }
+            
+            ?>
 
+
+            
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url(); ?>assets/gentelella/production/images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2><?php echo $sessData['nama']?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -67,13 +77,13 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home</a>
+                  <li><a href="<?php echo base_url('Home'); ?>"><i class="fa fa-home"></i> Home</a>
                    
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Daftar Transaksi </a>
+                  <li><a href="<?php echo base_url('Home/transaksi'); ?>"><i class="fa fa-edit"></i> Daftar Transaksi </a>
                     
                   </li>
-                  <li><a><i class="fa fa-user"></i> Daftar Sales </a>
+                  <li><a href="<?php echo base_url('Home/sales'); ?>"><i class="fa fa-user"></i> Daftar Sales </a>
                     
                   </li>
                   
@@ -97,12 +107,13 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="<?php echo base_url(); ?>assets/gentelella/production/images/user.png" alt=""><?php echo $sessData['username'] ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url('Home/profile'); ?>"> Profile</a></li>
+                    
+                    <li><a href="<?php echo base_url('Home/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

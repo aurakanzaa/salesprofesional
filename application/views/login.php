@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Halaman Login </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +20,7 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>assets/gentelella/build/css/custom.min.css" rel="stylesheet">
+    <script src="<?php echo base_url(); ?>assets/gentelella/vendors/jquery/dist/jquery.min.js"></script>
   </head>
 
   <body class="login">
@@ -34,17 +35,19 @@
             <center>
                     <img style="width:100%" src="<?php echo base_url(); ?>assets/gentelella/images/logologo.png" alt="">
             </center>
-            <form>
+            <form method="post" id="frmLogin">
               <h1>Login</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+              <div id="pesan_login" >
+                 
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input id="username" type="text" class="form-control" name="username" placeholder="Username" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
-                <a class="reset_pass" href="#">Lost your password?</a>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required="" />
+              </div>
+              <div>
+              <input type="submit" value="Login" class="btn btn-default submit">
               </div>
 
               <div class="clearfix"></div>
@@ -73,20 +76,23 @@
             </center>
             <form>
               <h1>Daftar Akun</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Nama" name="nama" required="" />
+              <div id="pesan" >
+                 
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Username" name="username" required="" />
+                <input type="text" id="nama_r" class="form-control" placeholder="Nama" name="nama" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" name="pasword" required="" />
+                <input type="text" id="username_r" class="form-control" placeholder="Username" name="username" required="" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Handphone" name="nohp" required="" />
+                <input type="password" id="password_r" class="form-control" placeholder="Password" name="pasword" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <input type="text"  id="nohp_r" class="form-control" placeholder="Handphone" name="nohp" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default" id="daftar">Submit</a>
               </div>
 
               <div class="clearfix"></div>
@@ -110,4 +116,69 @@
       </div>
     </div>
   </body>
+  <script>
+    $("#daftar").click(function( event ) {
+      event.preventDefault();
+
+      var data ={
+        nama : $("#nama_r").val(),
+        username : $("#username_r").val(),
+        password : $("#password_r").val(),
+        nohp : $("#nohp_r").val()
+      }
+      $.ajax({
+        url : "https://api.thegadeareamalang.com/bpo/index.php/register/",
+        type: "POST",
+        dataType: "JSON",
+        data:data,
+        success:function(respone){
+          if(respone[0]==="data_error"){
+            $("#pesan").html(
+              '<div id="pesan" class="alert alert-danger"><strong>Warning!</strong> Pendaftaran Gagal Ganti Data Anda.</div>'
+            )
+          }else{
+            $("#pesan").html(
+              '<div id="pesan" class="alert alert-success"><strong>Berhasil</strong> Pendaftaran Berhasil.</div>'
+            )
+            setTimeout(function(){ $(location).attr('href', "#signin"); }, 1000);
+            
+          }
+        },
+        error:function(xhr,status,err){
+          console.log(status)
+        }
+      })
+    });
+
+
+$('#frmLogin').submit(function(e) {
+
+e.preventDefault();
+var username = $("#username").val();
+var password = $("#password").val();
+var base_url = "<?= base_url('')?>"
+
+$.ajax({
+   url: base_url+'index.php/Home/login_aksi',
+   type: 'POST',
+   data: {username:username,password:password},
+   error: function() {
+      alert('Something is wrong');
+   },
+   success: function(respone) {
+       if(respone==="sukses"){
+        $("#pesan_login").html(
+              '<div id="pesan_login" class="alert alert-success"><strong>Berhasil</strong> Login Berhasil Berhasil.</div>'
+        )
+        setTimeout(function(){ $(location).attr('href', base_url+"index.php/Home"); }, 1000);
+       }else{
+        $("#pesan_login").html(
+              '<div id="pesan_login" class="alert alert-danger"><strong>Warning!</strong> Login Gagal Periksa Data Anda.</div>'
+        )
+       }
+   }
+
+});
+});
+</script>
 </html>
