@@ -159,7 +159,7 @@ var password = $("#password").val();
 var base_url = "<?= base_url('')?>"
 
 $.ajax({
-   url: base_url+'/index.php/home/login_aksi',
+   url: base_url+'index.php/Home/login_aksi',
    type: 'POST',
    data: {username:username,password:password},
    error: function() {
@@ -170,7 +170,7 @@ $.ajax({
         $("#pesan_login").html(
               '<div id="pesan_login" class="alert alert-success"><strong>Berhasil</strong> Login Berhasil Berhasil.</div>'
         )
-        setTimeout(function(){ $(location).attr('href', base_url+"/index.php/home"); }, 1000);
+        setTimeout(function(){ $(location).attr('href', base_url+"index.php/Home"); }, 1000);
        }else{
         $("#pesan_login").html(
               '<div id="pesan_login" class="alert alert-danger"><strong>Warning!</strong> Login Gagal Periksa Data Anda.</div>'

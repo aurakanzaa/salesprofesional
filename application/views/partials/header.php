@@ -48,15 +48,25 @@
             </div>
 
             <div class="clearfix"></div>
+            <?php 
+            $sessData = $this->session->userdata('login');
+            if(!$sessData){
+              echo "<script>window.location=('login/')</script>";
+              
+            }
+            
+            ?>
 
+
+            
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?php echo base_url(); ?>assets/gentelella/production/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url(); ?>assets/gentelella/production/images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2><?php echo $sessData['nama']?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -97,12 +107,13 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?php echo base_url(); ?>assets/gentelella/production/images/img.jpg" alt="">John Doe
+                    <img src="<?php echo base_url(); ?>assets/gentelella/production/images/user.png" alt=""><?php echo $sessData['username'] ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="<?php echo base_url('Home/profile'); ?>"> Profile</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    
+                    <li><a href="<?php echo base_url('Home/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

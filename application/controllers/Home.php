@@ -47,6 +47,15 @@ class Home extends CI_Controller {
             echo "koneksi Error";
         }
     }
+
+    public function logout(){
+        
+        $this->session->unset_userdata('login');
+        
+        redirect('Home/login','refresh');
+        
+        
+    }
     
     public function form(){
         $this->load->view('partials/header');
