@@ -67,13 +67,13 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home</a>
+                  <li><a href="<?php echo base_url('Home'); ?>"><i class="fa fa-home"></i> Home</a>
                    
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Daftar Transaksi </a>
+                  <li><a href="<?php echo base_url('Home/transaksi'); ?>"><i class="fa fa-edit"></i> Daftar Transaksi </a>
                     
                   </li>
-                  <li><a><i class="fa fa-user"></i> Daftar Sales </a>
+                  <li><a href="<?php echo base_url('Home/sales'); ?>"><i class="fa fa-user"></i> Daftar Sales </a>
                     
                   </li>
                   
