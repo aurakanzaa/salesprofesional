@@ -35,17 +35,19 @@
             <center>
                     <img style="width:100%" src="<?php echo base_url(); ?>assets/gentelella/images/logologo.png" alt="">
             </center>
-            <?php echo form_open('home/login_aksi');?>
+            <form method="post" id="frmLogin">
               <h1>Login</h1>
-              <div>
-                <input type="text" class="form-control" name="username" placeholder="Username" required="" />
+              <div id="pesan_login" >
+                 
               </div>
               <div>
-                <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+                <input id="username" type="text" class="form-control" name="username" placeholder="Username" required="" />
+              </div>
+              <div>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required="" />
               </div>
               <div>
               <input type="submit" value="Login" class="btn btn-default submit">
-                <a class="reset_pass" href="#">Lost your password?</a>
               </div>
 
               <div class="clearfix"></div>
@@ -63,7 +65,7 @@
                   <p>Copyright © 2019 PT. Pegadaian - Persero. All Rights Reserved.</p>
                 </div>
               </div>
-              <?php echo form_close(); ?>
+            </form>
           </section>
         </div>
 
@@ -117,7 +119,7 @@
   <script>
     $("#daftar").click(function( event ) {
       event.preventDefault();
-     
+
       var data ={
         nama : $("#nama_r").val(),
         username : $("#username_r").val(),
@@ -138,7 +140,7 @@
             $("#pesan").html(
               '<div id="pesan" class="alert alert-success"><strong>Berhasil</strong> Pendaftaran Berhasil.</div>'
             )
-            setTimeout(function(){ $(location).attr('href', "#signin"); }, 3000);
+            setTimeout(function(){ $(location).attr('href', "#signin"); }, 1000);
             
           }
         },
@@ -147,5 +149,36 @@
         }
       })
     });
+
+
+$('#frmLogin').submit(function(e) {
+
+e.preventDefault();
+var username = $("#username").val();
+var password = $("#password").val();
+var base_url = "<?= base_url('')?>"
+
+$.ajax({
+   url: base_url+'/index.php/home/login_aksi',
+   type: 'POST',
+   data: {username:username,password:password},
+   error: function() {
+      alert('Something is wrong');
+   },
+   success: function(respone) {
+       if(respone==="sukses"){
+        $("#pesan_login").html(
+              '<div id="pesan_login" class="alert alert-success"><strong>Berhasil</strong> Login Berhasil Berhasil.</div>'
+        )
+        setTimeout(function(){ $(location).attr('href', base_url+"/index.php/home"); }, 1000);
+       }else{
+        $("#pesan_login").html(
+              '<div id="pesan_login" class="alert alert-danger"><strong>Warning!</strong> Login Gagal Periksa Data Anda.</div>'
+        )
+       }
+   }
+
+});
+});
 </script>
 </html>
